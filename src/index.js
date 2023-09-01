@@ -10,6 +10,9 @@ if (process.env.NODE_ENV === "production") disableReactDevTools();
 const clientId = process.env.REACT_APP_AUTH0_CLIENT;
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 
+console.log(clientId);
+console.log(domain);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
