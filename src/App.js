@@ -7,6 +7,7 @@ import CreateBoard from "./components/ProjectManagerTool/CreateBoard";
 import ProjectDetails from "./components/ProjectManagerTool/ProjectDetails";
 import GlobalStyle from "./GlobalStyles";
 
+console.log(process.env);
 function App() {
   return (
     <>
