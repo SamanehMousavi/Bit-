@@ -73,7 +73,7 @@ const CreateBoard = () => {
   const [userList, setUserList] = useState([]);
 
   useEffect(() => {
-    fetch("/getUser")
+    fetch("/getuser")
       .then((response) => response.json())
       .then((parsed) => {
         console.log(parsed.data);
