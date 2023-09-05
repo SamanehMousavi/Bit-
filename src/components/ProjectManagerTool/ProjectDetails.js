@@ -80,7 +80,7 @@ const ProjectDetails = () => {
           setFormData(parsed.data);
           setColumns(parsed.data.taskStatus);
         });
-      fetch("/getuser")
+      fetch("/getUser")
         .then((response) => response.json())
         .then((parsed) => {
           setUserList(parsed.data);
