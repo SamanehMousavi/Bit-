@@ -18,7 +18,11 @@ const CheckList = () => {
   const [checked, setChecked] = useState({});
 
   const Refresh = () => {
-    fetch(`/tasklist/${value.toString().slice(0, 15)}/${currentUser.email}`)
+    fetch(
+      `https://bit-api.onrender.com/tasklist/${value.toString().slice(0, 15)}/${
+        currentUser.email
+      }`
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -45,9 +49,9 @@ const CheckList = () => {
 
   const handleDelete = (index) => {
     fetch(
-      `/deletetask/${value.toString().slice(0, 15)}/${
-        currentUser.email
-      }/${index}`,
+      `https://bit-api.onrender.com/deletetask/${value
+        .toString()
+        .slice(0, 15)}/${currentUser.email}/${index}`,
       {
         method: "DELETE",
         headers: {
@@ -67,7 +71,7 @@ const CheckList = () => {
 
   const handleUpdate = (input, index) => {
     setTask({});
-    fetch("/updatetask", {
+    fetch("https://bit-api.onrender.com/updatetask", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -95,7 +99,7 @@ const CheckList = () => {
     //   ...task,
     //   [key]: { id: key, task: task[key].task, completed: !task[key].completed },
     // });
-    fetch("/updatetask", {
+    fetch("https://bit-api.onrender.com/updatetask", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -120,7 +124,7 @@ const CheckList = () => {
 
   const handleSubmit = (input, index) => {
     if (input.length > 0) {
-      fetch("/addtask", {
+      fetch("https://bit-api.onrender.com/addtask", {
         method: "POST",
         headers: {
           Accept: "application/json",
