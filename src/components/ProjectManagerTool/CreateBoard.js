@@ -73,7 +73,7 @@ const CreateBoard = () => {
   const [userList, setUserList] = useState([]);
 
   useEffect(() => {
-    fetch("/getUser")
+    fetch("https://bit-api.onrender.com/getUser")
       .then((response) => response.json())
       .then((parsed) => {
         console.log(parsed.data);
@@ -113,7 +113,7 @@ const CreateBoard = () => {
 
   const handleSubmit = (e) => {
     console.log(formData);
-    fetch("/addProject", {
+    fetch("https://bit-api.onrender.com/addProject", {
       method: "POST",
       headers: {
         Accept: "application/json",

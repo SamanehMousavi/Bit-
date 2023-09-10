@@ -19,7 +19,7 @@ const Projects = ({ boardId, projectId }) => {
   const navigate = useNavigate();
   const [projects, setProjects] = useState({});
   const Refresh = () => {
-    fetch(`/getprojects/${currentUser.email}`)
+    fetch(`https://bit-api.onrender.com/getprojects/${currentUser.email}`)
       .then((response) => response.json())
       .then((parsed) => {
         if (parsed.status === 404) {
@@ -41,13 +41,16 @@ const Projects = ({ boardId, projectId }) => {
   }, [currentUser]);
 
   const handleDelete = (index) => {
-    fetch(`/deleteProject/${currentUser.email}/${index}`, {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://bit-api.onrender.com/deleteProject/${currentUser.email}/${index}`,
+      {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((parsed) => {
         console.log(parsed);

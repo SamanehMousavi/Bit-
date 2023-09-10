@@ -18,7 +18,7 @@ const HomePage = () => {
 
   useEffect(() => {
     if (user) {
-      fetch("/addUser", {
+      fetch("https://bit-api.onrender.com/addUser", {
         method: "POST",
         headers: {
           Accept: "application/json",

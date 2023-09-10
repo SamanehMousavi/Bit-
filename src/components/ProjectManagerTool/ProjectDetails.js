@@ -73,14 +73,16 @@ const ProjectDetails = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`/getProject/${user.email}/${projectId}`)
+      fetch(
+        `https://bit-api.onrender.com/getProject/${user.email}/${projectId}`
+      )
         .then((response) => response.json())
         .then((parsed) => {
           // console.log(parsed.data);
           setFormData(parsed.data);
           setColumns(parsed.data.taskStatus);
         });
-      fetch("/getUser")
+      fetch("https://bit-api.onrender.com/getUser")
         .then((response) => response.json())
         .then((parsed) => {
           setUserList(parsed.data);
@@ -119,7 +121,7 @@ const ProjectDetails = () => {
   };
   const handleSubmit = (e) => {
     console.log(formData);
-    fetch("/updateProject", {
+    fetch("https://bit-api.onrender.com/updateProject", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
