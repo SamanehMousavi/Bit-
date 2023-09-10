@@ -18,18 +18,22 @@ const CheckList = () => {
   const [checked, setChecked] = useState({});
 
   const Refresh = () => {
+    console.log("beforeRefresh");
     fetch(
       `https://bit-api.onrender.com/tasklist/${value.toString().slice(0, 15)}/${
         currentUser.email
       }`
     )
       .then((response) => {
+        console.log("response");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
+
       .then((parsed) => {
+        console.log("parsed");
         if (parsed.status === 404) {
           throw new Error(parsed.message);
         }
